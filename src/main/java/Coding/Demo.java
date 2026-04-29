@@ -7,7 +7,7 @@ public class Demo {
 		System.out.println("Hello World");
 		System.out.println("Hello World");
 		System.out.println("Hello World");
-		System.out.println("Line 1: Original Code");
+		System.out.println("Line 1: Developer A updated this");
 	}
 
 }
