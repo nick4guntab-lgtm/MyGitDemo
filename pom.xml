@@ -37,8 +37,12 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
+<<<<<<< HEAD
 			<version>6.3.4</version>
 			<scope>test</scope>
+=======
+			<version>5.9.2</version>
+>>>>>>> c18edf0b7cfb0a174d7ddd7c2e5e0027b3cd35f1
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

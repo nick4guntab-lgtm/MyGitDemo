@@ -19,7 +19,17 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src/test/resources"/>
+=======
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> c18edf0b7cfb0a174d7ddd7c2e5e0027b3cd35f1
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -30,6 +40,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Nikhil/.m2/repository/commons-io/commons-io/2.18.0/commons-io-2.18.0.jar" sourcepath="C:/Users/Nikhil/.m2/repository/commons-io/commons-io/2.18.0/commons-io-2.18.0-sources.jar">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -39,5 +50,7 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+=======
+>>>>>>> c18edf0b7cfb0a174d7ddd7c2e5e0027b3cd35f1
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

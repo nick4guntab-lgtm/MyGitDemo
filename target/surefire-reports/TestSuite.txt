@@ -1,9 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 6, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 66.494 s <<< FAILURE! - in TestSuite
 seleniumFrameworkDesign.ErrorValidationTest.loginErrorValidation  Time elapsed: 3.489 s  <<< FAILURE!
 java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
+=======
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 53.412 s <<< FAILURE! - in TestSuite
+seleniumFrameworkDesign.ErrorValidationTest.loginErrorValidation  Time elapsed: 2.611 s  <<< FAILURE!
+java.lang.AssertionError: expected [Incorrect 	r password.] but found [Login Successfully]
+>>>>>>> c18edf0b7cfb0a174d7ddd7c2e5e0027b3cd35f1
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
