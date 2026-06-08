@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import abstractComponents.AbstractComponents;
+import base.BasePage;
 
-public class ConfirmationPage extends AbstractComponents {
+public class ConfirmationPage extends BasePage {
 	WebDriver driver;
 
 	public ConfirmationPage(WebDriver driver) {

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import abstractComponents.AbstractComponents;
+import base.BasePage;
 
-public class CheckoutPage extends AbstractComponents {
+public class CheckoutPage extends BasePage {
 	WebDriver driver;
 
 	public CheckoutPage(WebDriver driver) {

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import abstractComponents.AbstractComponents;
+import base.BasePage;
 
-public class LandingPage extends AbstractComponents {
+public class LandingPage extends BasePage {
 
 	WebDriver driver;
 
@@ -30,11 +30,11 @@ public class LandingPage extends AbstractComponents {
 	@FindBy(css="[class*='flyInOut']")
 	WebElement loginErrorMessage;
 
-	public ProductCatalouge loginApplication(String email, String password) {
+	public ProductCatalogPage loginApplication(String email, String password) {
 		userEmail.sendKeys(email);
 		userPassword.sendKeys(password);
 		submit.click();
-		ProductCatalouge productCatalouge = new ProductCatalouge(driver);
+		ProductCatalogPage productCatalouge = new ProductCatalogPage(driver);
 		return productCatalouge;
 	}
 	

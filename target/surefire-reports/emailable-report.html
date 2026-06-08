@@ -9,14 +9,14 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Error ValidationTest</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">43,845</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">Submit Order Test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">50,589</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num attn">1</th><th class="num attn">1</th><th class="num">94,434</th><th colspan="2"></th></tr>
+<tr><td><a href="#t0">Error ValidationTest</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">57,790</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Submit Order Test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">63,454</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num attn">1</th><th class="num attn">1</th><th class="num">121,244</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Error ValidationTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m0">loginErrorValidation</a></td><td rowspan="1">1777534381412</td><td rowspan="1">1987</td></tr><tr><th colspan="4">Error ValidationTest &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m1">loginErrorValidation</a></td><td rowspan="1">1777534374200</td><td rowspan="1">2302</td></tr><tr><th colspan="4">Error ValidationTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m2">productErrorValidation</a></td><td rowspan="1">1777534390499</td><td rowspan="1">3100</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">Submit Order Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">seleniumFrameworkDesign.SubmitOrderTest</td><td><a href="#m3">OrderHistoryTest</a></td><td rowspan="1">1777534398736</td><td rowspan="1">1659</td></tr><tr class="passedeven"><td><a href="#m4">submitOrder</a></td><td rowspan="2">1777534375081</td><td rowspan="2">7962</td></tr><tr class="passedeven"><td><a href="#m5">submitOrder</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Error ValidationTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m0">loginErrorValidation</a></td><td rowspan="1">1779731337307</td><td rowspan="1">2327</td></tr><tr><th colspan="4">Error ValidationTest &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m1">loginErrorValidation</a></td><td rowspan="1">1779731327096</td><td rowspan="1">3786</td></tr><tr><th colspan="4">Error ValidationTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">seleniumFrameworkDesign.ErrorValidationTest</td><td><a href="#m2">productErrorValidation</a></td><td rowspan="1">1779731350149</td><td rowspan="1">8319</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Submit Order Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">seleniumFrameworkDesign.SubmitOrderTest</td><td><a href="#m3">OrderHistoryTest</a></td><td rowspan="1">1779731364269</td><td rowspan="1">1990</td></tr><tr class="passedeven"><td><a href="#m4">submitOrder</a></td><td rowspan="2">1779731345992</td><td rowspan="2">14063</td></tr><tr class="passedeven"><td><a href="#m5">submitOrder</a></td></tr></tbody>
 </table>
-<h2>Error ValidationTest</h2><h3 id="m0">seleniumFrameworkDesign.ErrorValidationTest#loginErrorValidation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Incorrect 	r password.] but found [Login Successfully]
+<h2>Error ValidationTest</h2><h3 id="m0">seleniumFrameworkDesign.ErrorValidationTest#loginErrorValidation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
 	at seleniumFrameworkDesign.ErrorValidationTest.loginErrorValidation(ErrorValidationTest.java:19)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -24,7 +24,7 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 ... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">seleniumFrameworkDesign.ErrorValidationTest#loginErrorValidation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Incorrect 	r password.] but found [Login Successfully]
+<h3 id="m1">seleniumFrameworkDesign.ErrorValidationTest#loginErrorValidation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
 	at seleniumFrameworkDesign.ErrorValidationTest.loginErrorValidation(ErrorValidationTest.java:19)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -34,7 +34,7 @@
 ... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m2">seleniumFrameworkDesign.ErrorValidationTest#productErrorValidation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h2>Submit Order Test</h2><h3 id="m3">seleniumFrameworkDesign.SubmitOrderTest#OrderHistoryTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">seleniumFrameworkDesign.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=Rahul@4321, email=william.nugen@gmail.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">seleniumFrameworkDesign.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=Kaimado@1234, email=rahulshetty@gecko.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">seleniumFrameworkDesign.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=Kaimado@1234, email=rahulshetty@gecko.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">seleniumFrameworkDesign.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=Rahul@4321, email=william.nugen@gmail.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

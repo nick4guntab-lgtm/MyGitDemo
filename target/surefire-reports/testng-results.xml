@@ -2,7 +2,7 @@
 <testng-results retried="1" ignored="1" total="7" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-30T13:02:30 IST" name="Suite" finished-at="2026-04-30T13:03:20 IST" duration-ms="50589">
+  <suite started-at="2026-05-25T23:18:23 IST" name="Suite" finished-at="2026-05-25T23:19:26 IST" duration-ms="63454">
     <groups>
       <group name="ErrorHandling">
         <method signature="ErrorValidationTest.loginErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" name="loginErrorValidation" class="seleniumFrameworkDesign.ErrorValidationTest"/>
@@ -11,19 +11,19 @@
         <method signature="SubmitOrderTest.submitOrder(java.util.HashMap)[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" name="submitOrder" class="seleniumFrameworkDesign.SubmitOrderTest"/>
       </group> <!-- Purchase -->
     </groups>
-    <test started-at="2026-04-30T13:02:30 IST" name="Error ValidationTest" finished-at="2026-04-30T13:03:13 IST" duration-ms="43845">
+    <test started-at="2026-05-25T23:18:23 IST" name="Error ValidationTest" finished-at="2026-05-25T23:19:21 IST" duration-ms="57790">
       <class name="seleniumFrameworkDesign.ErrorValidationTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:02:30 IST" name="launchApplication" finished-at="2026-04-30T13:02:54 IST" duration-ms="23972" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:18:23 IST" name="launchApplication" finished-at="2026-05-25T23:18:47 IST" duration-ms="23607" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method retried="true" signature="loginErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:02:54 IST" name="loginErrorValidation" finished-at="2026-04-30T13:02:56 IST" duration-ms="2302" status="SKIP">
+        <test-method retried="true" signature="loginErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:18:47 IST" name="loginErrorValidation" finished-at="2026-05-25T23:18:50 IST" duration-ms="3786" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [Incorrect r password.] but found [Login Successfully]]]>
+              <![CDATA[expected [Incorrect email or password.] but found [Login Successfully]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Incorrect r password.] but found [Login Successfully]
+              <![CDATA[java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertEqualsImpl(Assert.java:150)
@@ -57,21 +57,21 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:02:56 IST" name="tearDown" finished-at="2026-04-30T13:02:57 IST" duration-ms="1149" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:18:50 IST" name="tearDown" finished-at="2026-05-25T23:18:51 IST" duration-ms="369" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:02:57 IST" name="launchApplication" finished-at="2026-04-30T13:03:01 IST" duration-ms="3745" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:18:51 IST" name="launchApplication" finished-at="2026-05-25T23:18:57 IST" duration-ms="6044" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="loginErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:03:01 IST" name="loginErrorValidation" finished-at="2026-04-30T13:03:03 IST" duration-ms="1987" status="FAIL">
+        <test-method signature="loginErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:18:57 IST" name="loginErrorValidation" finished-at="2026-05-25T23:18:59 IST" duration-ms="2327" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [Incorrect r password.] but found [Login Successfully]]]>
+              <![CDATA[expected [Incorrect email or password.] but found [Login Successfully]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Incorrect r password.] but found [Login Successfully]
+              <![CDATA[java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertEqualsImpl(Assert.java:150)
@@ -105,31 +105,31 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:03:04 IST" name="tearDown" finished-at="2026-04-30T13:03:04 IST" duration-ms="629" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:19:00 IST" name="tearDown" finished-at="2026-05-25T23:19:04 IST" duration-ms="3330" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:03:04 IST" name="launchApplication" finished-at="2026-04-30T13:03:10 IST" duration-ms="5672" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:19:04 IST" name="launchApplication" finished-at="2026-05-25T23:19:10 IST" duration-ms="6009" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="productErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:03:10 IST" name="productErrorValidation" finished-at="2026-04-30T13:03:13 IST" duration-ms="3100" status="PASS">
+        <test-method signature="productErrorValidation()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:19:10 IST" name="productErrorValidation" finished-at="2026-05-25T23:19:18 IST" duration-ms="8319" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- productErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-04-30T13:03:13 IST" name="tearDown" finished-at="2026-04-30T13:03:13 IST" duration-ms="365" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.ErrorValidationTest@7486b455]" started-at="2026-05-25T23:19:18 IST" name="tearDown" finished-at="2026-05-25T23:19:21 IST" duration-ms="2633" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- seleniumFrameworkDesign.ErrorValidationTest -->
     </test> <!-- Error ValidationTest -->
-    <test started-at="2026-04-30T13:02:30 IST" name="Submit Order Test" finished-at="2026-04-30T13:03:20 IST" duration-ms="50589">
+    <test started-at="2026-05-25T23:18:23 IST" name="Submit Order Test" finished-at="2026-05-25T23:19:26 IST" duration-ms="63454">
       <class name="seleniumFrameworkDesign.SubmitOrderTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:02:30 IST" name="launchApplication" finished-at="2026-04-30T13:02:55 IST" duration-ms="24127" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:18:24 IST" name="launchApplication" finished-at="2026-05-25T23:18:48 IST" duration-ms="23839" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:02:55 IST" name="submitOrder" data-provider="getData" finished-at="2026-04-30T13:03:03 IST" duration-ms="7962" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:18:48 IST" name="submitOrder" data-provider="getData" finished-at="2026-05-25T23:18:57 IST" duration-ms="9352" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -140,15 +140,15 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:03 IST" name="tearDown" finished-at="2026-04-30T13:03:03 IST" duration-ms="624" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:18:57 IST" name="tearDown" finished-at="2026-05-25T23:18:59 IST" duration-ms="1974" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:03 IST" name="launchApplication" finished-at="2026-04-30T13:03:07 IST" duration-ms="3381" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:18:59 IST" name="launchApplication" finished-at="2026-05-25T23:19:05 IST" duration-ms="6354" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:07 IST" name="submitOrder" data-provider="getData" finished-at="2026-04-30T13:03:13 IST" duration-ms="6345" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:19:05 IST" name="submitOrder" data-provider="getData" finished-at="2026-05-25T23:19:20 IST" duration-ms="14063" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -159,19 +159,19 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:13 IST" name="tearDown" finished-at="2026-04-30T13:03:13 IST" duration-ms="350" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:19:20 IST" name="tearDown" finished-at="2026-05-25T23:19:21 IST" duration-ms="1495" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:13 IST" name="launchApplication" finished-at="2026-04-30T13:03:18 IST" duration-ms="4967" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:19:21 IST" name="launchApplication" finished-at="2026-05-25T23:19:24 IST" duration-ms="2708" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="OrderHistoryTest()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:18 IST" name="OrderHistoryTest" finished-at="2026-04-30T13:03:20 IST" depends-on-methods="seleniumFrameworkDesign.SubmitOrderTest.submitOrder" duration-ms="1659" status="PASS">
+        <test-method signature="OrderHistoryTest()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:19:24 IST" name="OrderHistoryTest" finished-at="2026-05-25T23:19:26 IST" depends-on-methods="seleniumFrameworkDesign.SubmitOrderTest.submitOrder" duration-ms="1990" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OrderHistoryTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-04-30T13:03:20 IST" name="tearDown" finished-at="2026-04-30T13:03:20 IST" duration-ms="317" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:seleniumFrameworkDesign.SubmitOrderTest@7d900ecf]" started-at="2026-05-25T23:19:26 IST" name="tearDown" finished-at="2026-05-25T23:19:26 IST" duration-ms="540" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
