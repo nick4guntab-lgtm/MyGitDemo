@@ -27,8 +27,15 @@ public class BaseTest {
 
 		// Properties class configurations
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
-				+ "/SeleniumFrameworkDesign/src/test/resources/properties/globalData.properties");
+
+		// 1. Get the dynamic project root path
+		String projectRoot = System.getProperty("user.dir");
+
+		// 2. Combine it with the exact relative path matching your project layout
+		String propertiesFilePath = projectRoot + "/src/test/resources/propertiesFiles/globalData.properties";
+
+		// 3. Load the file stream safely
+		FileInputStream fis = new FileInputStream(propertiesFilePath);
 		prop.load(fis);
 
 		// Checks if a browser system property is sent via Maven command line, otherwise
