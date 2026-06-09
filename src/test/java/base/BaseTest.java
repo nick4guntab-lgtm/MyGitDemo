@@ -28,7 +28,7 @@ public class BaseTest {
 		// Properties class configurations
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
-				+ "/SeleniumFrameworkDesign/src/test/resources/propertiesFiles/globalData.properties");
+				+ "/SeleniumFrameworkDesign/src/test/resources/properties/globalData.properties");
 		prop.load(fis);
 
 		// Checks if a browser system property is sent via Maven command line, otherwise
