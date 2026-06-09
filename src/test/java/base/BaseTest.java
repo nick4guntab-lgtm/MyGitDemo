@@ -28,13 +28,9 @@ public class BaseTest {
 		// Properties class configurations
 		Properties prop = new Properties();
 
-		// 1. Get the dynamic project root path
-		String projectRoot = System.getProperty("user.dir");
+		// Build the path using the exact lowercase folder name 'properties'
+		String propertiesFilePath = System.getProperty("user.dir") + "/src/test/resources/properties/globalData.properties";
 
-		// 2. Combine it with the exact relative path matching your project layout
-		String propertiesFilePath = projectRoot + "/src/test/resources/propertiesFiles/globalData.properties";
-
-		// 3. Load the file stream safely
 		FileInputStream fis = new FileInputStream(propertiesFilePath);
 		prop.load(fis);
 
