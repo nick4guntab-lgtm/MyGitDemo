@@ -6,10 +6,10 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(features = "src/test/java/Cucumber", 
 				 glue = "stepDefinations", 
 				 monochrome = true, 
-				 tags = "@ErrorValidation, Regression",
+				 tags = "@ErrorValidation and Regression",
 				 plugin = {"html:target/cucumber.html"}
 				 
 )
-public class CucunberTestRunner extends AbstractTestNGCucumberTests {
+public class CucumberTestRunner extends AbstractTestNGCucumberTests {
 
 }

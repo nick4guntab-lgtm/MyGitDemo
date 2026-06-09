@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import base.BaseTest;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,6 +36,7 @@ public class StepDefinitions extends BaseTest {
 	@When("^I add product (.+) to cart$")
 	public void i_add_product_to_cart(String productName) throws InterruptedException {
 		List<WebElement> products = productCatalouge.getProductList();
+		Assert.assertTrue(products.size() > 0);
 		productCatalouge.addProductToCart(productName);
 	}
 
