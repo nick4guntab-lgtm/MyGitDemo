@@ -1,4 +1,4 @@
-package pageObjects;
+package pages;
 
 import java.util.List;
 
@@ -9,22 +9,22 @@ import org.openqa.selenium.support.PageFactory;
 
 import base.BasePage;
 
-public class OrderPage extends BasePage {
+public class CartPage extends BasePage {
 
 	@FindBy(css = ".totalRow button")
 	WebElement checkoutEle;
 
-	@FindBy(css = "tr td:nth-child(3)")
-	private List<WebElement> productNames;
+	@FindBy(css = ".cartSection h3")
+	private List<WebElement> productTitles;
 
-	public OrderPage(WebDriver driver) {
+	public CartPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public Boolean VerifyOrderDisplay(String productName) {
-		Boolean match = productNames.stream().anyMatch(product -> product.getText().equalsIgnoreCase(productName));
+	public Boolean VerifyProductDisplay(String productName) {
+		Boolean match = productTitles.stream().anyMatch(product -> product.getText().equalsIgnoreCase(productName));
 		return match;
 	}
 

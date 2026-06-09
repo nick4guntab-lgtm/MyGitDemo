@@ -9,11 +9,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
-import pageObjects.CartPage;
-import pageObjects.CheckoutPage;
-import pageObjects.ConfirmationPage;
-import pageObjects.OrderPage;
-import pageObjects.ProductCatalogPage;
+import pages.CartPage;
+import pages.CheckoutPage;
+import pages.ConfirmationPage;
+import pages.OrderPage;
+import pages.ProductCatalogPage;
 import utils.JsonReader;
 
 public class SubmitOrderTest extends BaseTest {
@@ -54,7 +54,7 @@ public class SubmitOrderTest extends BaseTest {
 //		map1.put("password", "Kaimado@1234");
 
 		List<HashMap<String, String>> data = JsonReader.getJsonDataToMap(
-				System.getProperty("user.dir") + "/SeleniumFrameworkDesign/src/test/resources/testData/PurchaseOrder.json");
+				System.getProperty("user.dir") + "\\SeleniumFrameworkDesign\\src\\test\\resources\\testData\\PurchaseOrder.json");
 
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}

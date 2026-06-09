@@ -6,8 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
-import pageObjects.CartPage;
-import pageObjects.ProductCatalogPage;
+import pages.CartPage;
+import pages.ProductCatalogPage;
 
 public class ErrorValidationTest extends BaseTest {
 

@@ -1,4 +1,4 @@
-package stepDefinations;
+package stepdefinitions;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,11 +10,11 @@ import base.BaseTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageObjects.CartPage;
-import pageObjects.CheckoutPage;
-import pageObjects.ConfirmationPage;
-import pageObjects.LandingPage;
-import pageObjects.ProductCatalogPage;
+import pages.CartPage;
+import pages.CheckoutPage;
+import pages.ConfirmationPage;
+import pages.LandingPage;
+import pages.ProductCatalogPage;
 
 public class StepDefinitions extends BaseTest {
 

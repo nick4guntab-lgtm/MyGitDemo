@@ -15,7 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pageObjects.LandingPage;
+import pages.LandingPage;
 
 public class BaseTest {
 
