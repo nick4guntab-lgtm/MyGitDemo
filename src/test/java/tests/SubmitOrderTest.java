@@ -54,7 +54,7 @@ public class SubmitOrderTest extends BaseTest {
 //		map1.put("password", "Kaimado@1234");
 
 		List<HashMap<String, String>> data = JsonReader.getJsonDataToMap(
-				System.getProperty("user.dir") + "\\SeleniumFrameworkDesign\\src\\test\\resources\\testData\\PurchaseOrder.json");
+				System.getProperty("user.dir") + "/SeleniumFrameworkDesign/src/test/resources/testData/PurchaseOrder.json");
 
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}
