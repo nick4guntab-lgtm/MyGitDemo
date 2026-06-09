@@ -35,7 +35,7 @@ public class CheckoutPage extends BasePage {
 	}
 
 	public ConfirmationPage submitOrder() {
-		scrollDown(submit);
+		actions.scrollIntoElement(submit);
 		submit.click();
 		return new ConfirmationPage(driver);
 	}

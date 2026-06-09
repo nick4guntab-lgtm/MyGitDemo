@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import config.FrameworkConstants;
 import pages.CartPage;
 import pages.CheckoutPage;
 import pages.ConfirmationPage;
@@ -53,8 +54,7 @@ public class SubmitOrderTest extends BaseTest {
 //		map1.put("email", "rahulshetty@gecko.com");
 //		map1.put("password", "Kaimado@1234");
 
-		List<HashMap<String, String>> data = JsonReader.getJsonDataToMap(
-				System.getProperty("user.dir") + "/SeleniumFrameworkDesign/src/test/resources/testData/PurchaseOrder.json");
+		List<HashMap<String, String>> data = JsonReader.getJsonDataToMap(FrameworkConstants.PURCHASE_ORDER_JSON);
 
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}
