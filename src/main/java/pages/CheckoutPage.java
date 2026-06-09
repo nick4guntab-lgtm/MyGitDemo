@@ -30,7 +30,7 @@ public class CheckoutPage extends BasePage {
 
 	public void selectCountry(String countryName) {
 		country.sendKeys(countryName);
-		waitForElementToAppear(By.cssSelector(".ta-results"));
+		waitUtils.waitForElementToAppear(By.cssSelector(".ta-results"));
 		selectCountry.click();
 	}
 

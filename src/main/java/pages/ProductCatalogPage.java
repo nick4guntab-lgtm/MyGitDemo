@@ -32,7 +32,7 @@ public class ProductCatalogPage extends BasePage {
 	By toastMessage = By.cssSelector("#toast-container");
 
 	public List<WebElement> getProductList() {
-		waitForElementToAppear(productBy);
+		waitUtils.waitForElementToAppear(productBy);
 		return products;
 	}
 
@@ -47,8 +47,8 @@ public class ProductCatalogPage extends BasePage {
 		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCart).click();
 
-		waitForElementToAppear(toastMessage);
-		waitForElementToDisappear(spinner);
+		waitUtils.waitForElementToAppear(toastMessage);
+		waitUtils.waitForElementToDisappear(spinner);
 	}
 
 }

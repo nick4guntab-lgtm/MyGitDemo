@@ -39,7 +39,7 @@ public class LandingPage extends BasePage {
 	}
 
 	public String getErrorMessage() {
-		waitForWebElementToAppear(loginErrorMessage);
+		waitUtils.waitForElementToAppear(loginErrorMessage);
 		return loginErrorMessage.getText();
 	}
 
