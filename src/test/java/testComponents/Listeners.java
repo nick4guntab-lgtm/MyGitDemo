@@ -11,7 +11,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import base.BaseTest;
 import resources.ExtentReporterNG;
+import utils.ScreenshotUtils;
 
 public class Listeners extends BaseTest implements ITestListener {
 
@@ -48,7 +50,7 @@ public class Listeners extends BaseTest implements ITestListener {
 				// 3. Take Screenshot and attach it to the report
 				String filePath = null;
 				try {
-					filePath = getScreenshot(result.getMethod().getMethodName(), driver);
+					filePath = ScreenshotUtils.getScreenshot(result.getMethod().getMethodName(), driver);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

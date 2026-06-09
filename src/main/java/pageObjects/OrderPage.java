@@ -7,14 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 import base.BasePage;
 
 public class OrderPage extends BasePage {
-
-import abstractComponents.AbstractComponents;
-
-public class OrderPage extends AbstractComponents {
 
 	@FindBy(css = ".totalRow button")
 	WebElement checkoutEle;

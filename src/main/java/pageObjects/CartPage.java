@@ -10,9 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import base.BasePage;
 
 public class CartPage extends BasePage {
-import abstractComponents.AbstractComponents;
-
-public class CartPage extends AbstractComponents {
 
 	@FindBy(css = ".totalRow button")
 	WebElement checkoutEle;
