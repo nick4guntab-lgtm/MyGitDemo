@@ -26,7 +26,7 @@ public class LandingPage extends BasePage {
 	@FindBy(id = "login")
 	WebElement submit;
 
-	@FindBy(css = "[class*='flyInOut']")
+	@FindBy(xpath = "//div[contains(text(), 'Incorrect email or password')]")
 	WebElement loginErrorMessage;
 
 	public ProductCatalogPage loginApplication(String email, String password) {
