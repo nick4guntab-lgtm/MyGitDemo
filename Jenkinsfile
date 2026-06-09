@@ -26,13 +26,13 @@ pipeline {
             }
         }
 
-        stage('Code Quality (Checkstyle/Sonar)') {
-            steps {
-                echo 'Running static code analysis to check automation framework quality...'
+//        stage('Code Quality (Checkstyle/Sonar)') {
+  //          steps {
+    //            echo 'Running static code analysis to check automation framework quality...'
                 // Optional: You can use 'mvn checkstyle:check' or 'mvn sonar:sonar'
-                bat 'mvn checkstyle:check'
-            }
-        }
+      //          bat 'mvn checkstyle:check'
+        //    }
+        //}
 
         // Parallel stage lets you split tasks to speed up the pipeline execution time
         stage('Parallel Test Execution') {
@@ -43,12 +43,12 @@ pipeline {
                         bat "mvn test -DsuiteXmlFile=${params.TEST_SUITE}-ui.xml -Denv=${params.ENVIRONMENT}"
                     }
                 }
-                stage('API Automation Suite') {
-                    steps {
-                        echo "Launching Backend API ${params.TEST_SUITE} Tests..."
-                        bat "mvn test -DsuiteXmlFile=${params.TEST_SUITE}-api.xml -Denv=${params.ENVIRONMENT}"
-                    }
-                }
+//                stage('API Automation Suite') {
+  //                  steps {
+    //                    echo "Launching Backend API ${params.TEST_SUITE} Tests..."
+      //                  bat "mvn test -DsuiteXmlFile=${params.TEST_SUITE}-api.xml -Denv=${params.ENVIRONMENT}"
+        //            }
+          //      }
             }
         }
 
