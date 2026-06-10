@@ -16,7 +16,7 @@ public class ConfirmationPage extends BasePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = ".hero-primary")
+	@FindBy(xpath = "//h1[@class='hero-primary']")
 	WebElement confirmationMessage;
 
 	public String getConfirmationMessage() {

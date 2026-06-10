@@ -8,15 +8,14 @@ public class FrameworkConstants {
 
 	// SECTION 1: SYSTEM & PROJECT PATHS
 	private static final String USER_DIR = System.getProperty("user.dir");
-	
+
 	public static final String EXTENT_REPORT_PATH = USER_DIR + "/reports/index.html";
 
 	// Path to your Global Configuration properties file
 	public static final String GLOBAL_DATA_PROPERTIES_PATH = USER_DIR
 			+ "/src/test/resources/properties/globalData.properties";
 
-	public static final String PURCHASE_ORDER_JSON = USER_DIR
-			+ "/SeleniumFrameworkDesign/src/test/resources/testData/PurchaseOrder.json";
+	public static final String PURCHASE_ORDER_JSON = USER_DIR + "/src/test/resources/testData/PurchaseOrder.json";
 
 	// Path to Extent Reports output directory
 	public static final String EXTENT_REPORT_FOLDER_PATH = USER_DIR + "\\reports\\";

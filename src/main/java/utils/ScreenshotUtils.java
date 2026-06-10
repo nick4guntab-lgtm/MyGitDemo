@@ -11,14 +11,13 @@ import org.openqa.selenium.WebDriver;
 public class ScreenshotUtils {
 	public static String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
 
-		TakesScreenshot screenshot = (TakesScreenshot) driver;
-		File source = screenshot.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
-		FileUtils.copyFile(source, file);
-
-		return System.getProperty("user.dir") + "//reports//" + testCaseName + "_" + System.currentTimeMillis()
+		String path = System.getProperty("user.dir") + "/reports/" + testCaseName + "_" + System.currentTimeMillis()
 				+ ".png";
-
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File(path));
+		
+		return path;
 	}
 
 }

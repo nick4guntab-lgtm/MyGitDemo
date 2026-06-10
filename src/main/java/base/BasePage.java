@@ -36,5 +36,5 @@ public class BasePage {
 		OrderPage orderPage = new OrderPage(driver);
 		return orderPage;
 	}
-
+	
 }

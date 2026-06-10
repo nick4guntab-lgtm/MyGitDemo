@@ -1,9 +1,7 @@
 package base;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
+import config.ConfigManager;
 import config.FrameworkConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LandingPage;
@@ -22,17 +21,10 @@ public class BaseTest {
 
 	protected WebDriver driver;
 	public LandingPage landingPage;
-	public Properties prop;
 
 	public WebDriver initializeDriver() throws IOException {
 
-		Properties prop = new Properties();
-		String propertiesFilePath = FrameworkConstants.GLOBAL_DATA_PROPERTIES_PATH;
-		FileInputStream fis = new FileInputStream(propertiesFilePath);
-		prop.load(fis);
-
-		String browserName = System.getProperty("browser") != null ? System.getProperty("browser")
-				: prop.getProperty("browser");
+		String browserName = ConfigManager.getBrowserTarget();
 
 		if (browserName.contains(FrameworkConstants.CHROME_BROWSER)) {
 			ChromeOptions options = new ChromeOptions();
@@ -58,21 +50,16 @@ public class BaseTest {
 		return driver;
 	}
 
-	public String productName() {
-		String productName = prop.getProperty("productName");
-		return productName;
-	}
-
-	@BeforeMethod(alwaysRun = true)
+	@BeforeTest(alwaysRun = true)
 	public LandingPage launchApplication() throws IOException {
-		WebDriver driver = initializeDriver();
+		driver = initializeDriver();
 		landingPage = new LandingPage(driver);
 
 		landingPage.goTo();
 		return landingPage;
 	}
 
-	@AfterMethod(alwaysRun = true)
+	@AfterTest(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();
 	}

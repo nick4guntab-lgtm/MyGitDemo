@@ -1,25 +1,26 @@
 package testcomponents;
 
 import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import base.BaseTest;
+
 import utils.ExtentReportManager;
 import utils.ScreenshotUtils;
 
-public class TestListeners extends BaseTest implements ITestListener {
+public class TestListeners implements ITestListener {
 
 	private ExtentReports extent = ExtentReportManager.getReportObject();
 	private ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		// Safe assignment using ThreadLocal to avoid multi-threading log collisions
 		ExtentTest test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
 	}
@@ -38,8 +39,12 @@ public class TestListeners extends BaseTest implements ITestListener {
 		// execution
 		WebDriver threadDriver = null;
 		try {
-			threadDriver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
-					.get(result.getInstance());
+			java.lang.reflect.Field field = result.getTestClass().getRealClass().getSuperclass()
+					.getDeclaredField("driver");
+
+			field.setAccessible(true);
+
+			threadDriver = (WebDriver) field.get(result.getInstance());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

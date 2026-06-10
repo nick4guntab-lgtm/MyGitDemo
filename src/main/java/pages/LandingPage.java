@@ -23,7 +23,7 @@ public class LandingPage extends BasePage {
 	@FindBy(id = "userPassword")
 	WebElement userPassword;
 
-	@FindBy(id = "login")
+	@FindBy(xpath = "//input[@id='login']")
 	WebElement submit;
 
 	@FindBy(xpath = "//div[contains(text(), 'Incorrect email or password')]")

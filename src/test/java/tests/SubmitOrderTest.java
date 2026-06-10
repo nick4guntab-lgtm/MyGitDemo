@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import config.ConfigManager;
 import config.FrameworkConstants;
 import pages.CartPage;
 import pages.CheckoutPage;
@@ -23,10 +24,10 @@ public class SubmitOrderTest extends BaseTest {
 	public void submitOrder(HashMap<String, String> input) throws IOException, InterruptedException {
 
 		ProductCatalogPage productCatalouge = landingPage.loginApplication(input.get("email"), input.get("password"));
-		productCatalouge.addProductToCart(productName());
+		productCatalouge.addProductToCart(ConfigManager.getProductName());
 		CartPage cartPage = productCatalouge.goToCartPage();
 
-		Boolean match = cartPage.VerifyProductDisplay(productName());
+		Boolean match = cartPage.VerifyProductDisplay(ConfigManager.getProductName());
 		Assert.assertTrue(match);
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("india");
@@ -40,7 +41,7 @@ public class SubmitOrderTest extends BaseTest {
 	public void OrderHistoryTest() {
 		ProductCatalogPage productCatalogue = landingPage.loginApplication("william.nugen@gmail.com", "Rahul@4321");
 		OrderPage orderPage = productCatalogue.goToOrderPage();
-		Assert.assertTrue(orderPage.VerifyOrderDisplay(productName()));
+		Assert.assertTrue(orderPage.VerifyOrderDisplay(ConfigManager.getProductName()));
 	}
 
 	@DataProvider
@@ -58,7 +59,5 @@ public class SubmitOrderTest extends BaseTest {
 
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}
-
-	
 
 }

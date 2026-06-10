@@ -25,6 +25,7 @@ public class WaitUtils {
 	}
 
 	public WaitUtils(WebDriver driver, int timeoutInSeconds) {
+		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
 	}
 
