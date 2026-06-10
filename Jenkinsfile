@@ -52,12 +52,43 @@ pipeline {
             }
         }
     }
-
+    
     post {
         always {
             echo 'Archiving test reports...'
             junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: '**/target/ExtentReports/**', allowEmptyArchive: true
+        }
+        
+        success {
+            // Fires automatically only if all stages pass successfully
+            emailext (
+                subject: "SUCCESS: Job '${env.JOB_NAME}' [Build #${env.BUILD_NUMBER}]",
+                body: """<h3>Build Execution Passed Successfully</h3>
+                         <p>The automation suite ran clean without regression drops.</p>
+                         <p><b>Job Profile:</b> ${env.JOB_NAME}<br>
+                         <b>Build Number:</b> #${env.BUILD_NUMBER}<br>
+                         <b>Console Log URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                         <p><i>This is an automated pipeline status notification.</i></p>""",
+                to: 'nick4guntab@gmail.com',
+                mimeType: 'text/html'
+            )
+        }
+
+        failure {
+            // Fires automatically if ANY stage compiles with an error or tests drop
+            emailext (
+                subject: "CRITICAL FAILURE: Job '${env.JOB_NAME}' [Build #${env.BUILD_NUMBER}]",
+                body: """<h3>Build Execution Failed</h3>
+                         <p>Errors were intercepted during compilation or test assertion loops.</p>
+                         <p><b>Job Profile:</b> ${env.JOB_NAME}<br>
+                         <b>Build Number:</b> #${env.BUILD_NUMBER}<br>
+                         <b>Target Test Environment:</b> ${params.ENVIRONMENT}<br>
+                         <b>Review Test Failure Log Here:</b> <a href="${env.BUILD_URL}testngreports/">TestNG Execution Dashboard</a></p>
+                         <p>Please inspect the attached build logs or console logs to identify the locator mismatch or system crash.</p>""",
+                to: 'nick4guntab@gmail.com',
+                mimeType: 'text/html'
+            )
         }
     }
 }
