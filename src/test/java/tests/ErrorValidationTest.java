@@ -13,12 +13,12 @@ import testcomponents.RetryTest;
 
 public class ErrorValidationTest extends BaseTest {
 
-//	@Test(groups = { "ErrorHandling" }, retryAnalyzer = RetryTest.class)
-//	public void loginErrorValidation() throws IOException, InterruptedException {
-//
-//		landingPage.loginApplication("william.@gmail.com", "Rahul@4321");
-//		Assert.assertEquals(landingPage.getErrorMessage(), "Incorrect email or password.");
-//	}
+	@Test(groups = { "ErrorHandling" }, retryAnalyzer = RetryTest.class)
+	public void loginErrorValidation() throws IOException, InterruptedException {
+
+		landingPage.loginApplication("william.@gmail.com", "Rahul@4321");
+		Assert.assertEquals(landingPage.getErrorMessage(), "Enter Valid Email");
+	}
 
 	@Test(groups = { "ErrorHandling" }, retryAnalyzer = RetryTest.class)
 	public void productErrorValidation() throws InterruptedException {

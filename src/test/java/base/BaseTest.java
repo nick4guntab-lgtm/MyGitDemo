@@ -9,7 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import config.ConfigManager;
@@ -50,7 +52,7 @@ public class BaseTest {
 		return driver;
 	}
 
-	@BeforeTest(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public LandingPage launchApplication() throws IOException {
 		driver = initializeDriver();
 		landingPage = new LandingPage(driver);
@@ -59,7 +61,7 @@ public class BaseTest {
 		return landingPage;
 	}
 
-	@AfterTest(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();
 	}

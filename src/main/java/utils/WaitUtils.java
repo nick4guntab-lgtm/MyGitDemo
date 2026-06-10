@@ -13,20 +13,25 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import config.FrameworkConstants;
+
 public class WaitUtils {
 
 	private WebDriver driver;
-	private WebDriverWait wait;
-	private final int DEFAULT_TIMEOUT = 5;
+	private static WebDriverWait wait;
 
 	public WaitUtils(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(FrameworkConstants.SHORT_WAIT));
 	}
 
 	public WaitUtils(WebDriver driver, int timeoutInSeconds) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+	}
+
+	public static WebElement waitForElementToPresent(WebDriver driver, By locator) {
+		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
 	public WebElement waitForElementToAppear(By findBy) {
