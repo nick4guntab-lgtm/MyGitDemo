@@ -1,4 +1,4 @@
-# Step 1: Fetch an official lightweight Linux image pre-loaded with Maven and OpenJDK 17
+# Step 1: Fetch an official lightweight Linux image pre-loaded with Maven and OpenJDK 21
 FROM maven:3.9-eclipse-temurin-21
 
 # Step 2: Create a workspace folder inside that Linux container
@@ -10,14 +10,9 @@ COPY pom.xml .
 # Step 4: Tell Maven to pre-download all your dependencies (Selenium, TestNG, Jackson, etc.)
 RUN mvn dependency:go-offline
 
-# Explicitly copy all your main and test source architecture blueprints
+# Step 5: Copy all your main and test source architecture blueprints
 COPY src ./src
 COPY *.xml ./
 
-# FORCE COPY fallback checks for properties and JSON resource files just in case
-COPY src/main/resources ./src/main/resources
-COPY src/test/resources ./src/test/resources
-
-# --- CHANGE HERE: EXECUTE USING A SHELL TO INTERPOLATE DYNAMIC PARAMETERS ---
-# We use "sh -c" so the container environment can read $TEST_SUITE and $BROWSER variables at runtime.
+# Step 6: Execute using a shell to interpolate dynamic parameters
 ENTRYPOINT ["sh", "-c", "mvn test -DsuiteXmlFile=${TEST_SUITE}.xml -Dbrowser=${BROWSER}"]
