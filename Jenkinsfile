@@ -65,19 +65,19 @@ pipeline {
         }
     }
     
-   post {
+  post {
         always {
             echo 'Archiving container-mapped test reports...'
-           // 1. Record the TestNG results for your dashboard trend lines
+            // 1. Record the TestNG results for your dashboard trend lines
             junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
             
-            // 2. CHANGE HERE: Target your dedicated reports directory explicitly
-            archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: false
+            // 2. FIXED PATH ARCHIVER: Recursively searches the workspace root for the reports tree
+            archiveArtifacts artifacts: '**/reports/**/*', allowEmptyArchive: true
             
             echo 'Tearing down active running grid infrastructure nodes...'
-            // --- FIXED: Swapped 'sh' out for 'bat' ---
             bat 'docker compose down'
         }
+    }
         
         success {
             // Fires automatically only if all stages pass successfully
