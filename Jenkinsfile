@@ -44,7 +44,7 @@ pipeline {
                     steps {
                         echo "Launching Web UI ${params.TEST_SUITE} Tests on ${params.BROWSER} inside Docker..."
                         
-                        sh """
+                        bat """
                             export BROWSER=${params.BROWSER}
                             export TEST_SUITE=${params.TEST_SUITE}
                             export ENVIRONMENT=${params.ENVIRONMENT}
@@ -65,15 +65,15 @@ pipeline {
         }
     }
     
-    post {
+   post {
         always {
             echo 'Archiving container-mapped test reports...'
-            // Because your docker-compose.yml maps volumes (./target), these files are waiting for Jenkins right here
             junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: '**/target/ExtentReports/**', allowEmptyArchive: true
             
             echo 'Tearing down active running grid infrastructure nodes...'
-            sh 'docker compose down'
+            // --- FIXED: Swapped 'sh' out for 'bat' ---
+            bat 'docker compose down'
         }
         
         success {
