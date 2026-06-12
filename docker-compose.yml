@@ -28,9 +28,8 @@ services:
       - chrome
     environment:
       - SELENIUM_GRID_URL=http://selenium-hub:4444/wd/hub
-      - TEST_SUITE=${TEST_SUITE}  # <-- Check Line 31 here! (Use spaces only)
-      - BROWSER=${BROWSER}        # <-- Check Line 32 here! (Use spaces only)
+      - TEST_SUITE=${TEST_SUITE}
+      - BROWSER=${BROWSER}
     volumes:
-      # Maps the container reports folder back to your local workspace
       - ./target:/home/automation/target
-	  - ./reports:/home/automation/reports  # <-- ADD THIS EXACT LINE HERE!
+      - ./reports:/home/automation/reports
