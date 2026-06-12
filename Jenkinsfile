@@ -61,18 +61,17 @@ pipeline {
         }
     }
     
-   post {
+    post {
         always {
             echo 'Archiving container-mapped test reports...'
             junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
             
-            // Look directly inside your target output directory
+            // Looking inside the shared volume target location
             archiveArtifacts artifacts: '**/target/surefire-reports/*.html', allowEmptyArchive: false
             
             echo 'Tearing down active running grid infrastructure nodes...'
             bat 'docker compose down'
         }
-    }
         
         success {
             emailext (
@@ -103,3 +102,4 @@ pipeline {
             )
         }
     }
+}
