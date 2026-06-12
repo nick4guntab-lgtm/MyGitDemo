@@ -32,4 +32,3 @@ services:
       - BROWSER=${BROWSER}
     volumes:
       - ./target:/home/automation/target
-      - ./reports:/home/automation/reports
