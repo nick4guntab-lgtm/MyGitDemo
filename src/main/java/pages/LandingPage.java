@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BasePage;
+import utils.BrowserActions;
 import utils.WaitUtils;
 
 public class LandingPage extends BasePage {
@@ -29,22 +30,24 @@ public class LandingPage extends BasePage {
 	WebElement submit;
 
 	By productBy = By.cssSelector(".mb-3");
-	By loginErrorMessage = By.xpath("//div[text()='*Enter Valid Email']");
+
+	@FindBy(xpath = "//div[text()='*Enter Valid Email']")
+	WebElement loginErrorMessage;
 
 	public ProductCatalogPage loginApplication(String email, String password) {
 		userEmail.sendKeys(email);
 		userPassword.sendKeys(password);
-		submit.click();
+		BrowserActions.clickUsingJS(submit);
 		ProductCatalogPage productCatalouge = new ProductCatalogPage(driver);
 
 		return productCatalouge;
 	}
 
 	public String getErrorMessage() {
-		return WaitUtils.waitForElementToPresent(driver, loginErrorMessage).getText();
+		return WaitUtils.waitForWebElementToAppear(driver, loginErrorMessage).getText();
 	}
 
-	public void goTo() {
-		driver.get("https://rahulshettyacademy.com/client/");
+	public void goTo(String url) {
+		driver.get(url); // This is line 51
 	}
 }

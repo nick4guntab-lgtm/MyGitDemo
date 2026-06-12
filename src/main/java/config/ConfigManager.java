@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigManager {
-	
+
 	private static Properties prop = new Properties();
-	
+
 	// Static initialization block runs automatically to load the file once
 	static {
 		try (FileInputStream fis = new FileInputStream(FrameworkConstants.GLOBAL_DATA_PROPERTIES_PATH)) {
@@ -19,6 +19,10 @@ public class ConfigManager {
 
 	public static String getProductName() {
 		return prop.getProperty("productName");
+	}
+
+	public static String getURL() {
+		return prop.getProperty("URL");
 	}
 
 	public static String getBrowserTarget() {

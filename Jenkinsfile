@@ -14,30 +14,42 @@ pipeline {
         )
         choice(
             name: 'BROWSER',
-            choices: ['Chrome', 'Firefox', 'Edge', 'Chrome-Headless'],
+            choices: ['chrome', 'firefox', 'edge', 'headless-chrome'],
             description: 'Select the required browser or execution type'
         )
     }
 
-    tools {
-       maven '3.9.9'
-    }
+// 	  tools {
+//       maven '3.9.9'
+//    }
 
     stages {
-        stage('Clean & Compile') {
+        stage('Env Clean & Compile') {
             steps {
-                echo "Cleaning workspace and compiling framework for ${params.ENVIRONMENT}..."
-                bat 'mvn clean compile'
+                echo "Wiping legacy container instances for clean run in ${params.ENVIRONMENT}...."
+                bat 'docker compose down --volumes --remove-orphans'
             }
         }
+        
+        stage('Build Container Network'){
+			steps {
+				echo "Compiling code and packaging the Test Runner image..."
+				bat 'docker compose build --no-cache'
+			}
+		}
 
         stage('Parallel Test Execution') {
             parallel {
                 stage('UI Automation Suite') {
                     steps {
-                        echo "Launching Web UI ${params.TEST_SUITE} Tests on ${params.BROWSER}..."
+                        echo "Launching Web UI ${params.TEST_SUITE} Tests on ${params.BROWSER} inside Docker..."
                         
-                        bat "mvn test -DsuiteXmlFile=${params.TEST_SUITE}.xml -Dbrowser=${params.BROWSER.toLowerCase()}"
+                        sh """
+                            export BROWSER=${params.BROWSER}
+                            export TEST_SUITE=${params.TEST_SUITE}
+                            export ENVIRONMENT=${params.ENVIRONMENT}
+                            docker compose up --exit-code-from test-runner
+                        """
                     }
                 }
             }
@@ -55,9 +67,13 @@ pipeline {
     
     post {
         always {
-            echo 'Archiving test reports...'
+            echo 'Archiving container-mapped test reports...'
+            // Because your docker-compose.yml maps volumes (./target), these files are waiting for Jenkins right here
             junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: '**/target/ExtentReports/**', allowEmptyArchive: true
+            
+            echo 'Tearing down active running grid infrastructure nodes...'
+            sh 'docker compose down'
         }
         
         success {

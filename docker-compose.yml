@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # The Traffic Controller: Manages browser allocations
+  selenium-hub:
+    image: selenium/hub:4.10.0
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+
+  # The Worker: A headless Chrome browser instance inside a container
+  chrome:
+    image: selenium/node-chrome:4.10.0
+    shm_size: '2gb' # Allocates RAM so Chrome layout engines don't crash
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+
+  # Your Framework Engine: Compiles and triggers the execution runner
+  test-runner:
+    build: .
+    depends_on:
+      - selenium-hub
+      - chrome
+    environment:
+      # Injecting the environment property that our BaseTest checks!
+      - SELENIUM_GRID_URL=http://selenium-hub:4444/wd/hub
+	  - TEST_SUITE=${TEST_SUITE}  # <-- Maps Jenkins choice parameter down into Docker
+	  - BROWSER=${BROWSER}
+    volumes:
+      # Maps the container reports folder back to your local workspace so you can open your HTML reports on your host machine
+      - ./target:/home/automation/target

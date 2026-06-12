@@ -9,10 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BasePage;
+import utils.BrowserActions;
 
 public class ProductCatalogPage extends BasePage {
-
-	WebDriver driver;
 
 	public ProductCatalogPage(WebDriver driver) {
 		super(driver);
@@ -44,8 +43,8 @@ public class ProductCatalogPage extends BasePage {
 	}
 
 	public void addProductToCart(String productName) throws InterruptedException {
-		WebElement prod = getProductByName(productName);
-		prod.findElement(addToCart).click();
+		WebElement prod = getProductByName(productName).findElement(addToCart);
+		BrowserActions.clickUsingJS(prod);
 
 		waitUtils.waitForElementToAppear(toastMessage);
 		waitUtils.waitForElementToDisappear(spinner);

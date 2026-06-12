@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BasePage;
+import utils.BrowserActions;
 
 public class CartPage extends BasePage {
 
@@ -29,7 +30,7 @@ public class CartPage extends BasePage {
 	}
 
 	public CheckoutPage goToCheckout() {
-		checkoutEle.click();
+		BrowserActions.clickUsingJS(checkoutEle);;
 		return new CheckoutPage(driver);
 	}
 }

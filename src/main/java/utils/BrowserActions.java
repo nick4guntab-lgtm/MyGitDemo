@@ -7,8 +7,9 @@ import org.openqa.selenium.interactions.Actions;
 
 public class BrowserActions {
 
-	private JavascriptExecutor javascriptExecutor;
 	private Actions actions;
+	private static WebDriver driver;
+	private static JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 
 	public BrowserActions(WebDriver driver) {
 
@@ -16,7 +17,7 @@ public class BrowserActions {
 			throw new IllegalArgumentException("WebDriver instance cannot be null");
 		}
 
-		this.javascriptExecutor = (JavascriptExecutor) driver;
+		javascriptExecutor = (JavascriptExecutor) driver;
 		this.actions = new Actions(driver);
 	}
 
@@ -46,9 +47,16 @@ public class BrowserActions {
 	}
 
 	public void rightClick(WebElement element) {
-        actions.contextClick(element).build().perform();
+		actions.contextClick(element).build().perform();
 	}
-	
-	
+
+	public static void clickUsingJS(WebElement element) {
+		try {
+			javascriptExecutor.executeScript("arguments[0].click();", element);
+		} catch (Exception e) {
+			throw new RuntimeException("CRITICAL: JavaScript click failed on element: " + element.toString()
+					+ ". Message: " + e.getMessage());
+		}
+	}
 
 }

@@ -22,31 +22,38 @@ public class WaitUtils {
 
 	public WaitUtils(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(FrameworkConstants.SHORT_WAIT));
+		new WebDriverWait(driver, Duration.ofSeconds(FrameworkConstants.LONG_WAIT));
 	}
 
-	public WaitUtils(WebDriver driver, int timeoutInSeconds) {
-		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
-	}
+//		public WaitUtils(WebDriver driv	er, int timeoutInSeconds) {
+//		this.driver = driver;
+//		new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+//	}
 
-	public static WebElement waitForElementToPresent(WebDriver driver, By locator) {
+	public static WebElement waitForElementToPresent(By locator) {
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
+	public static WebElement waitForWebElementToAppear(WebDriver driver, WebElement findBy) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		return wait.until(ExpectedConditions.visibilityOf(findBy));
+	}
+
 	public WebElement waitForElementToAppear(By findBy) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 	}
 
-	public WebElement waitForElementToAppear(WebElement element) {
-		return wait.until(ExpectedConditions.visibilityOf(element));
+	public static WebElement waitForElementToAppear(WebDriver driver, By locator) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	public boolean waitForElementToDisappear(WebElement element) {
 		return wait.until(ExpectedConditions.invisibilityOf(element));
 	}
 
-	public WebElement waitForElementToBeClickable(WebElement element) {
+	public static WebElement waitForElementToBeClickable(WebElement element) {
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 

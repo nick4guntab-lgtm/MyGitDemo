@@ -7,10 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BasePage;
+import utils.BrowserActions;
 
 public class CheckoutPage extends BasePage {
-
-	WebDriver driver;
 
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -31,13 +30,13 @@ public class CheckoutPage extends BasePage {
 
 	public void selectCountry(String countryName) {
 		country.sendKeys(countryName);
-		waitUtils.waitForElementToAppear(By.cssSelector(".ta-results"));
-		selectCountry.click();
+		waitUtils.waitForElementToAppear(results);
+		BrowserActions.clickUsingJS(selectCountry);
 	}
 
 	public ConfirmationPage submitOrder() {
 		actions.scrollIntoElement(submit);
-		submit.click();
+		BrowserActions.clickUsingJS(submit);
 		return new ConfirmationPage(driver);
 	}
 
