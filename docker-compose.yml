@@ -27,10 +27,9 @@ services:
       - selenium-hub
       - chrome
     environment:
-      # Injecting the environment property that our BaseTest checks!
       - SELENIUM_GRID_URL=http://selenium-hub:4444/wd/hub
-	  - TEST_SUITE=${TEST_SUITE}  # <-- Maps Jenkins choice parameter down into Docker
-	  - BROWSER=${BROWSER}
+      - TEST_SUITE=${TEST_SUITE}  # <-- Check Line 31 here! (Use spaces only)
+      - BROWSER=${BROWSER}        # <-- Check Line 32 here! (Use spaces only)
     volumes:
-      # Maps the container reports folder back to your local workspace so you can open your HTML reports on your host machine
+      # Maps the container reports folder back to your local workspace
       - ./target:/home/automation/target
