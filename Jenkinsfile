@@ -68,8 +68,11 @@ pipeline {
    post {
         always {
             echo 'Archiving container-mapped test reports...'
-            junit '**/target/surefire-reports/*.xml'
-            archiveArtifacts artifacts: '**/target/ExtentReports/**', allowEmptyArchive: true
+           // 1. Record the TestNG results for your dashboard trend lines
+            junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
+            
+            // 2. CHANGE HERE: Target your dedicated reports directory explicitly
+            archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: false
             
             echo 'Tearing down active running grid infrastructure nodes...'
             // --- FIXED: Swapped 'sh' out for 'bat' ---

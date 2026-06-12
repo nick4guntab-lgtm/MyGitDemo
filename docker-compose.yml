@@ -33,3 +33,4 @@ services:
     volumes:
       # Maps the container reports folder back to your local workspace
       - ./target:/home/automation/target
+	  - ./reports:/home/automation/reports  # <-- ADD THIS EXACT LINE HERE!
