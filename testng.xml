@@ -1,11 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ECommerce Automation Suite" parallel="none">
+<suite name="ECommerce Automation Suite" parallel="tests" thread-count="2">
 	<listeners>
 		<listener class-name="testcomponents.TestListeners" />
 	</listeners>
-	<test name="Regression Tests">
+	<test name="Error Validation test">
 		<classes>
-			<class name="tests.ErrorValidationTest"/>
+			<class name="tests.ErrorValidationTest" />
+		</classes>
+	</test>
+	<test name="Submit Order test">
+		<classes>
 			<class name="tests.SubmitOrderTest" />
 		</classes>
 	</test>
